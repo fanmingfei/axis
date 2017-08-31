@@ -36,3 +36,14 @@ export function samePos(pos, pos2) {
 }
 
 
+
+export const sendMove = (function () {
+    let time = 0;
+    return (data)=>{
+        if (performance.now() - time > 150 || data._r == 100) {
+            fetch(`/receive?option=${[data._x,data._y,data._r]}`)
+            time = performance.now()
+        }
+    }
+})()
+
