@@ -6,16 +6,28 @@ export const saveData = {
     set x(d) {
         if(d == this._x) return;
         this._x = d
-        sendMove(this)
+        if (d == 0) {
+            sendMove(this, true)
+        } else {
+            sendMove(this)
+        }
     },
     set y(d) {
         if(d == this._y) return;
         this._y = d
-        sendMove(this)
+        if (d == 0) {
+            sendMove(this, true)
+        } else {
+            sendMove(this)
+        }
     },
     set r(d) {
         if(d == this._r) return;
         this._r = d
-        sendMove(this)
+        if (d == 50) {
+            sendMove(this, true)
+        } else {
+            sendMove(this)
+        }
     },
 }

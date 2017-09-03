@@ -16,6 +16,9 @@ let control = {
 
 document.addEventListener('mouseup', function(e) {
     control.status = false
+
+    saveData.x = 0
+    saveData.y = 0
     setTranslate(0, 0, axisCentre)
 })
 
@@ -31,7 +34,7 @@ document.addEventListener('mousemove', function(e) {
 })
 
 
-function moveCentre (e, type) {
+function moveCentre (e) {
     const mousePos = [e.pageX, e.pageY]
 
     const vect = minusPos(mousePos, control.centrePoint)
@@ -55,8 +58,8 @@ function moveCentre (e, type) {
     }
 
     const moveVect = divPos(pos, [control.r,control.r])
-    moveVect [0] = new Number(moveVect[0].toFixed(1))
-    moveVect [1] = new Number(moveVect[1].toFixed(1))
+    moveVect [0] = new Number((moveVect[0]*Math.abs(moveVect[0])).toFixed(2))
+    moveVect [1] = new Number((moveVect[1]*Math.abs(moveVect[1])).toFixed(2))
     saveData.x = moveVect [0]
     saveData.y = -moveVect [1]
 }

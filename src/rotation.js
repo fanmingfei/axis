@@ -14,6 +14,7 @@ const control = {
 
 document.addEventListener('mouseup', function() {
     control.status = false;
+    saveData.r = 50
     setTranslate(0, 0, rotationCentre)
 })
 rotationBody.addEventListener('mousedown', function(e) {

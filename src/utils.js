@@ -39,8 +39,8 @@ export function samePos(pos, pos2) {
 
 export const sendMove = (function () {
     let time = 0;
-    return (data)=>{
-        if (performance.now() - time > 150 || data._r == 100) {
+    return (data, flag)=>{
+        if (data._r == 100 || data._r == 0 || flag) {
             fetch(`/receive?option=${[data._x,data._y,data._r]}`)
             time = performance.now()
         }
